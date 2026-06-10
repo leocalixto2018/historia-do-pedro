@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#080C18">
+<title>A História de Pedro — 1960</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --gold:#D4A017;--gold-l:#F5C842;--gold-d:#A07010;
+  --bg:#080C18;--bg2:#0F1525;--bg3:#16202E;--bg4:#1C2A3A;
+  --text:#EAE6DC;--muted:#7A8BA8;--green:#00A83C;
+  --teal:#1D9E75;--teal-l:#5DCAA5;--teal-bg:#04342C;
+  --coral:#D85A30;--coral-l:#F0997B;--coral-bg:#4A1B0C;
+  --r:12px;--r-sm:8px;
+}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent;}
+body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;font-size:15px;}
+img{max-width:100%;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:rgba(8,12,24,0.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(29,158,117,0.2);
+  padding:0 1rem;height:52px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-brand{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--teal-l);letter-spacing:.05em;text-decoration:none;}
+.hamburger{background:none;border:none;cursor:pointer;padding:6px;display:flex;flex-direction:column;gap:5px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.nav-menu{
+  position:fixed;top:52px;left:0;right:0;bottom:0;
+  background:rgba(8,12,24,0.97);backdrop-filter:blur(20px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2rem;list-style:none;
+  transform:translateX(100%);transition:transform .3s cubic-bezier(.16,1,.3,1);z-index:199;
+}
+.nav-menu.open{transform:none;}
+.nav-menu a{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--muted);text-decoration:none;letter-spacing:.1em;transition:color .2s;}
+.nav-menu a:hover{color:var(--teal-l);}
+
+/* ── HERO ── */
+.hero{
+  min-height:100svh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  padding:5rem 1.25rem 3rem;
+  background:radial-gradient(ellipse 120% 80% at 50% 60%,#062e1f 0%,var(--bg) 65%);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 47px,rgba(255,255,255,.018) 47px,rgba(255,255,255,.018) 48px),
+  repeating-linear-gradient(90deg,transparent,transparent 47px,rgba(255,255,255,.018) 47px,rgba(255,255,255,.018) 48px);
+  pointer-events:none;
+}
+.hero-icon{font-size:4.5rem;margin-bottom:1rem;display:block;filter:drop-shadow(0 0 24px rgba(29,158,117,.4));animation:float 4s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+.hero-eye{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--teal-l);margin-bottom:.6rem;font-weight:600;}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,18vw,6rem);line-height:.92;letter-spacing:.02em;margin-bottom:.75rem;}
+.hero-title em{color:var(--teal-l);font-style:normal;}
+.hero-sub{font-size:.9rem;color:var(--muted);font-style:italic;line-height:1.6;max-width:280px;margin:0 auto 2rem;}
+.hero-chips{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;}
+.chip{background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.3);border-radius:100px;padding:5px 14px;font-size:.78rem;font-weight:600;color:var(--teal-l);}
+.scroll-down{margin-top:2.5rem;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);}
+.scroll-down::after{content:'';width:1px;height:32px;background:linear-gradient(to bottom,var(--teal),transparent);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:.3;}50%{opacity:1;}}
+
+/* ── SECTIONS ── */
+section{padding:3rem 1.25rem;}
+.sec-eye{font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:.4rem;}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,9vw,2.8rem);line-height:1;margin-bottom:1rem;}
+.teal-rule{border:none;border-top:1px solid rgba(29,158,117,.3);margin-bottom:1.2rem;}
+
+/* ── PERSONAGENS ── */
+.person-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.5rem;}
+.person-card{background:var(--bg3);border:1px solid rgba(255,255,255,.06);border-radius:var(--r);padding:1rem;text-align:center;}
+.person-card.pedro-card{border-color:rgba(29,158,117,.4);background:linear-gradient(160deg,rgba(29,158,117,.1),var(--bg3));}
+.person-card.pai-card{border-color:rgba(216,90,48,.35);background:linear-gradient(160deg,rgba(216,90,48,.08),var(--bg3));}
+.person-card.mae-card{border-color:rgba(212,160,23,.35);background:linear-gradient(160deg,rgba(212,160,23,.08),var(--bg3));}
+.person-icon{font-size:2.2rem;margin-bottom:.5rem;display:block;}
+.person-name{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.04em;line-height:1;}
+.person-role{font-size:.7rem;color:var(--muted);margin:.3rem 0;}
+.person-tag{font-size:.65rem;padding:3px 10px;border-radius:100px;display:inline-block;font-weight:600;}
+.tag-teal{background:rgba(29,158,117,.15);color:var(--teal-l);border:1px solid rgba(29,158,117,.3);}
+.tag-coral{background:rgba(216,90,48,.15);color:var(--coral-l);border:1px solid rgba(216,90,48,.3);}
+.tag-gold{background:rgba(212,160,23,.15);color:var(--gold-l);border:1px solid rgba(212,160,23,.3);}
+.person-card.wide{grid-column:span 2;}
+
+/* ── TIMELINE ── */
+.timeline{position:relative;padding-left:1.5rem;margin-top:.5rem;}
+.timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:rgba(29,158,117,.25);}
+.t-event{position:relative;margin-bottom:1.4rem;}
+.t-dot{position:absolute;left:-1.5rem;top:5px;width:14px;height:14px;border-radius:50%;border:2px solid;background:var(--bg);}
+.dot-teal{border-color:var(--teal);}
+.dot-coral{border-color:var(--coral);}
+.dot-gold{border-color:var(--gold);}
+.dot-muted{border-color:#3A4A5A;}
+.t-year{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:2px;}
+.t-title{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--text);letter-spacing:.03em;margin-bottom:.3rem;}
+.t-desc{font-size:.82rem;color:var(--muted);line-height:1.6;}
+
+/* ── PERGUNTAS (accordion) ── */
+.q-card{background:var(--bg3);border:1px solid rgba(255,255,255,.07);border-radius:var(--r);overflow:hidden;margin-bottom:.5rem;transition:border-color .2s;}
+.q-card.open{border-color:rgba(29,158,117,.4);}
+.q-header{display:flex;align-items:center;gap:.75rem;padding:.9rem 1rem;cursor:pointer;}
+.q-num{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--teal-l);min-width:24px;}
+.q-label{flex:1;font-weight:600;font-size:.88rem;color:var(--text);}
+.q-arrow{font-size:1rem;color:var(--muted);transition:transform .25s;}
+.q-card.open .q-arrow{transform:rotate(45deg);color:var(--teal-l);}
+.q-body{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.16,1,.3,1);}
+.q-card.open .q-body{max-height:600px;}
+.q-inner{padding:.1rem 1rem 1.1rem;border-top:1px solid rgba(255,255,255,.05);}
+.q-text{font-size:.83rem;color:var(--muted);line-height:1.7;}
+.q-quote{border-left:2px solid var(--teal);padding:.6rem .9rem;margin:0.7rem 0;font-style:italic;font-size:.82rem;color:var(--text);background:rgba(29,158,117,.07);border-radius:0 var(--r-sm) var(--r-sm) 0;}
+
+/* ── STATS ── */
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.5rem;}
+.stat-tile{background:var(--bg3);border:1px solid rgba(255,255,255,.06);border-radius:var(--r);padding:1rem .75rem;text-align:center;}
+.stat-tile.wide{grid-column:span 2;}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;color:var(--teal-l);line-height:1;}
+.stat-unit{font-size:.72rem;color:var(--muted);margin-top:1px;}
+.stat-label{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;}
+
+/* ── FACTS ── */
+.fact{background:var(--bg3);border:1px solid rgba(255,255,255,.06);border-radius:var(--r);padding:1rem;margin-bottom:.6rem;border-top:2px solid var(--teal);display:flex;gap:.75rem;align-items:flex-start;}
+.fact-icon{font-size:1.4rem;flex-shrink:0;margin-top:1px;}
+.fact-title{font-weight:600;font-size:.88rem;margin-bottom:.3rem;color:var(--teal-l);}
+.fact-text{font-size:.8rem;color:var(--muted);line-height:1.6;}
+
+/* ── REFLEXÃO FINAL ── */
+.final-box{
+  background:linear-gradient(160deg,#062e1f,var(--bg3));
+  border:1px solid rgba(29,158,117,.4);border-radius:var(--r);
+  padding:1.5rem 1rem;text-align:center;
+}
+.final-icon{font-size:3rem;display:block;margin-bottom:.75rem;}
+.final-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.6rem,7vw,2.2rem);margin-bottom:.75rem;color:var(--teal-l);}
+.final-text{font-size:.85rem;color:var(--muted);line-height:1.7;font-style:italic;max-width:320px;margin:0 auto;}
+
+/* ── FOOTER ── */
+footer{text-align:center;padding:2rem 1rem 3rem;border-top:1px solid rgba(255,255,255,.06);font-size:.72rem;color:var(--muted);}
+footer span{color:var(--teal-l);}
+
+/* ── REVEAL ── */
+.rev{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);}
+.rev.vis{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">Pedro · 1960</a>
+  <button class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<ul class="nav-menu" id="navmenu">
+  <li><a href="#personagens" onclick="closeMenu()">Personagens</a></li>
+  <li><a href="#historia" onclick="closeMenu()">História</a></li>
+  <li><a href="#perguntas" onclick="closeMenu()">Perguntas</a></li>
+  <li><a href="#contexto" onclick="closeMenu()">Contexto</a></li>
+  <li><a href="#reflexao" onclick="closeMenu()">Reflexão</a></li>
+</ul>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-icon">📖</span>
+  <p class="hero-eye">Brasil · Ano de 1960</p>
+  <h1 class="hero-title">A<br>História<br>de <em>Pedro</em></h1>
+  <p class="hero-sub">Um sonho interrompido pelo peso de uma época que não sabia ouvir seus jovens</p>
+  <div class="hero-chips">
+    <span class="chip">Família</span>
+    <span class="chip">Sonho</span>
+    <span class="chip">Trabalho</span>
+    <span class="chip">Brasil 1960</span>
+  </div>
+  <div class="scroll-down">Explorar</div>
+</div>
+
+<!-- PERSONAGENS -->
+<section id="personagens">
+  <p class="sec-eye rev">Os Protagonistas</p>
+  <h2 class="sec-title rev">Personagens</h2>
+  <hr class="teal-rule rev">
+
+  <div class="person-grid rev">
+    <div class="person-card pedro-card wide">
+      <span class="person-icon">👦</span>
+      <div class="person-name">Pedro</div>
+      <div class="person-role">O filho sonhador</div>
+      <span class="person-tag tag-teal">Queria estudar</span>
+      <p style="font-size:.78rem;color:var(--muted);margin-top:.75rem;line-height:1.5;">Jovem cheio de vontade e curiosidade. Sonhava com os livros antes de encarar o mundo do trabalho. Respeitoso mesmo sob pressão — carregou sua tristeza com dignidade.</p>
+    </div>
+    <div class="person-card pai-card">
+      <span class="person-icon">👨</span>
+      <div class="person-name">O Pai</div>
+      <div class="person-role">Chefe autoritário</div>
+      <span class="person-tag tag-coral">Exigia trabalho</span>
+      <p style="font-size:.75rem;color:var(--muted);margin-top:.75rem;line-height:1.5;">Rígido e inflexível. Acreditava que ser homem era sustentar a família acima de tudo — inclusive dos próprios sonhos do filho.</p>
+    </div>
+    <div class="person-card mae-card">
+      <span class="person-icon">👩</span>
+      <div class="person-name">A Mãe</div>
+      <div class="person-role">Apoio silencioso</div>
+      <span class="person-tag tag-gold">Compreendia Pedro</span>
+      <p style="font-size:.75rem;color:var(--muted);margin-top:.75rem;line-height:1.5;">Entendia o filho, queria diferente para ele. Mas em 1960, a voz da mulher raramente mudava decisões dentro do lar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HISTÓRIA / TIMELINE -->
+<section id="historia">
+  <p class="sec-eye rev">A Narrativa</p>
+  <h2 class="sec-title rev">Linha do Tempo</h2>
+  <hr class="teal-rule rev">
+
+  <div class="timeline">
+    <div class="t-event rev">
+      <div class="t-dot dot-teal"></div>
+      <p class="t-year">1960 — O início</p>
+      <div class="t-title">O sonho nasce</div>
+      <p class="t-desc">Pedro cresce com o desejo de estudar. Quer entender o mundo além do que seus olhos alcançam no bairro onde vive. Os livros representam a promessa de um futuro diferente.</p>
+    </div>
+    <div class="t-event rev">
+      <div class="t-dot dot-coral"></div>
+      <p class="t-year">1960 — A virada</p>
+      <div class="t-title">O pai impõe sua vontade</div>
+      <p class="t-desc">Com voz firme e sem espaço para debate, o pai declara: Pedro precisa trabalhar. Ser homem, naquele tempo e naquela casa, significava sustentar — e qualquer desejo pessoal era visto como fraqueza.</p>
+    </div>
+    <div class="t-event rev">
+      <div class="t-dot dot-gold"></div>
+      <p class="t-year">1960 — O silêncio</p>
+      <div class="t-title">A mãe se conforma</div>
+      <p class="t-desc">Ela queria diferente para o filho. Ficou chateada, mas não tinha voz naquele lar, naquela época. Em 1960, mulheres raramente mudavam as decisões dos maridos. Guardou a dor para si.</p>
+    </div>
+    <div class="t-event rev">
+      <div class="t-dot dot-muted"></div>
+      <p class="t-year">Depois</p>
+      <div class="t-title">Pedro começa a trabalhar cedo</div>
+      <p class="t-desc">Sem tempo para os livros, Pedro entra no mundo do trabalho antes de estar pronto. O sonho fica para trás — não esquecido, mas adiado para sempre. Anos árduos que poderiam ter sido de estudo se perdem.</p>
+    </div>
+    <div class="t-event rev">
+      <div class="t-dot dot-teal"></div>
+      <p class="t-year">Sempre</p>
+      <div class="t-title">Uma compreensão silenciosa</div>
+      <p class="t-desc">Apesar de tudo, Pedro nunca tratou o pai com rancor. Com o tempo, compreendeu que aquele homem duro, do seu jeito limitado, só queria o bem da família — e que amor, às vezes, chega mal-expresso.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PERGUNTAS -->
+<section id="perguntas">
+  <p class="sec-eye rev">Análise</p>
+  <h2 class="sec-title rev">Perguntas-Chave</h2>
+  <hr class="teal-rule rev">
+
+  <div id="accordion" class="rev">
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggleQ(this)">
+        <div class="q-num">01</div>
+        <div class="q-label">Pedro irá realizar seu sonho?</div>
+        <div class="q-arrow">+</div>
+      </div>
+      <div class="q-body">
+        <div class="q-inner">
+          <p class="q-text">Infelizmente, Pedro não realizou seu sonho de estudar. A pressão do pai foi constante e determinante, não deixando brechas para que Pedro construísse outro caminho. Ele perdeu anos preciosos que poderiam ter sido dedicados ao aprendizado.</p>
+          <div class="q-quote">"Há sonhos que não viram realidade, mas moldam para sempre quem a gente se torna."</div>
+          <p class="q-text">O sonho não morreu dentro dele — ficou guardado como uma promessa não cumprida. A história de Pedro é também a de toda uma geração que foi forçada a crescer antes do tempo, num Brasil onde a sobrevivência falava mais alto do que a vocação.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggleQ(this)">
+        <div class="q-num">02</div>
+        <div class="q-label">Qual fator influenciou Pedro na escolha profissional?</div>
+        <div class="q-arrow">+</div>
+      </div>
+      <div class="q-body">
+        <div class="q-inner">
+          <p class="q-text">A "escolha" de Pedro foi quase inteiramente moldada pela figura do pai — um homem autoritário, filho de uma época em que o pai detinha autoridade absoluta sobre o destino dos filhos.</p>
+          <div class="q-quote">Pedro não escolheu trabalhar. Foi levado a isso pela pressão familiar e pelo peso cultural do que significava ser homem naquele tempo.</div>
+          <p class="q-text">O contexto de 1960 no Brasil reforçava essa estrutura: filhos homens deveriam contribuir financeiramente o quanto antes. Não havia orientação profissional, não havia espaço para conversa. Havia a vontade do pai — e o restante se dobrava a ela.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggleQ(this)">
+        <div class="q-num">03</div>
+        <div class="q-label">Como Pedro lidou com seus sentimentos?</div>
+        <div class="q-arrow">+</div>
+      </div>
+      <div class="q-body">
+        <div class="q-inner">
+          <p class="q-text">Pedro sentiu tristeza e mágoa profundas. Ver seu sonho ser soterrado antes mesmo de ganhar forma é uma dor que não passa facilmente. No entanto, ele demonstrou uma maturidade rara para a idade.</p>
+          <div class="q-quote">Pedro encontrou dignidade não na resistência, mas na compreensão. Entendeu que o pai, do seu jeito rígido, também estava tentando proteger a família.</div>
+          <p class="q-text">Mesmo sob pressão extrema, mesmo contrariado, Pedro nunca tratou o pai com desrespeito ou rancor. Essa capacidade de compreender sem concordar é uma forma silenciosa e poderosa de força emocional — ele não abandonou seus sonhos por fraqueza, mas os guardou com cuidado.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header" onclick="toggleQ(this)">
+        <div class="q-num">04</div>
+        <div class="q-label">Como era a relação com os pais?</div>
+        <div class="q-arrow">+</div>
+      </div>
+      <div class="q-body">
+        <div class="q-inner">
+          <p class="q-text" style="margin-bottom:.5rem;"><strong style="color:var(--coral-l);font-weight:600;">Com o pai:</strong> Uma relação marcada pela hierarquia e pelo respeito imposto. O pai não abria espaço para diálogo — sua palavra era definitiva. Apesar disso, Pedro manteve respeito genuíno, pois entendia que aquele homem duro carregava uma visão de mundo formada pela escassez e pela responsabilidade.</p>
+          <div class="q-quote">Pedro via no autoritarismo do pai não maldade, mas amor mal-expresso — o único jeito que aquele homem sabia de proteger os seus.</div>
+          <p class="q-text"><strong style="color:var(--gold-l);font-weight:600;">Com a mãe:</strong> Era uma relação de cumplicidade silenciosa. A mãe entendia Pedro de um jeito que o pai não conseguia. Ela teria lutado por ele — mas vivia num tempo que não deixava escolhas às mulheres. Seu conformismo não era indiferença; era o peso de uma época inteira.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTEXTO HISTÓRICO -->
+<section id="contexto">
+  <p class="sec-eye rev">Brasil · 1960</p>
+  <h2 class="sec-title rev">O Contexto</h2>
+  <hr class="teal-rule rev">
+
+  <div class="stats-grid rev">
+    <div class="stat-tile wide" style="background:linear-gradient(135deg,rgba(29,158,117,.1),var(--bg3));">
+      <div class="stat-num">1960</div>
+      <div class="stat-unit">Brasil em plena transformação</div>
+      <div class="stat-label">Era de Juscelino Kubitschek</div>
+    </div>
+    <div class="stat-tile">
+      <div class="stat-num">↓</div>
+      <div class="stat-unit">acesso ao estudo</div>
+      <div class="stat-label">Classes populares</div>
+    </div>
+    <div class="stat-tile">
+      <div class="stat-num">↑</div>
+      <div class="stat-unit">pressão familiar</div>
+      <div class="stat-label">Sobre filhos homens</div>
+    </div>
+    <div class="stat-tile wide">
+      <div class="stat-num">0</div>
+      <div class="stat-unit">voz política das mulheres no lar</div>
+      <div class="stat-label">Estrutura patriarcal dominante</div>
+    </div>
+  </div>
+
+  <div style="margin-top:1rem;">
+    <div class="fact rev">
+      <div class="fact-icon">🏛️</div>
+      <div><div class="fact-title">Brasil em desenvolvimento</div><div class="fact-text">Em 1960, o Brasil vivia o governo JK e a construção de Brasília. O país crescia economicamente, mas a educação para as classes populares ainda era um privilégio distante.</div></div>
+    </div>
+    <div class="fact rev">
+      <div class="fact-icon">👨‍👩‍👦</div>
+      <div><div class="fact-title">O patriarcado como lei</div><div class="fact-text">Na família brasileira dos anos 60, a palavra do pai era definitiva. Filhos não tinham espaço para contestar — obediência era virtude, sonho era luxo.</div></div>
+    </div>
+    <div class="fact rev">
+      <div class="fact-icon">👩</div>
+      <div><div class="fact-title">O silêncio imposto às mulheres</div><div class="fact-text">Em 1960, a mulher casada brasileira precisava de autorização do marido para trabalhar, abrir conta ou assinar contratos. Dentro do lar, sua opinião raramente alterava decisões.</div></div>
+    </div>
+    <div class="fact rev">
+      <div class="fact-icon">📚</div>
+      <div><div class="fact-title">Estudar era exceção</div><div class="fact-text">Para famílias humildes, estudar era um sonho distante. O trabalho precoce era visto não como exploração, mas como responsabilidade e valor moral passado de geração a geração.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REFLEXÃO FINAL -->
+<section id="reflexao">
+  <p class="sec-eye rev">Para Pensar</p>
+  <h2 class="sec-title rev">Reflexão Final</h2>
+  <hr class="teal-rule rev">
+
+  <div class="final-box rev">
+    <span class="final-icon">✨</span>
+    <div class="final-title">Sonhos que ficaram no caminho</div>
+    <p class="final-text">A história de Pedro não é só a dele. É o retrato de uma geração inteira de jovens brasileiros que tiveram seus sonhos interrompidos — não por falta de vontade, mas pelo peso de um tempo que não sabia ouvir.</p>
+    <p class="final-text" style="margin-top:.75rem;">Pedro aprendeu que amor e autoridade podem coexistir de formas dolorosas. Que compreender não é o mesmo que concordar. E que guardar um sonho dentro do peito, mesmo sem poder realizá-lo, já é uma forma de resistência.</p>
+  </div>
+</section>
+
+<footer>
+  <p>A História de <span>Pedro</span> · Brasil, 1960</p>
+  <p style="margin-top:.3rem;font-size:.65rem;">Um estudo sobre família, sonhos e a pressão de uma época</p>
+</footer>
+
+<script>
+// ── NAV ──────────────────────────────────────────────────────────
+const ham = document.getElementById('ham');
+const menu = document.getElementById('navmenu');
+ham.addEventListener('click', () => {
+  ham.classList.toggle('open');
+  menu.classList.toggle('open');
+  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+});
+function closeMenu() {
+  ham.classList.remove('open');
+  menu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── ACCORDION ────────────────────────────────────────────────────
+function toggleQ(header) {
+  const card = header.closest('.q-card');
+  const isOpen = card.classList.contains('open');
+  document.querySelectorAll('.q-card').forEach(c => c.classList.remove('open'));
+  if (!isOpen) card.classList.add('open');
+}
+
+// ── REVEAL ON SCROLL ─────────────────────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('vis');
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.rev').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
